@@ -1,19 +1,20 @@
-import { useEffect } from 'react';
-import GlobalApi from '../../Services/GlobalApi';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import GlobalApi from '@/Services/GlobalApi';
 
-export default function GenreList() {
+export default function GenreList({ genreId, handleSelectedName }) {
   const [genres, setGenres] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleGenreClick = (id, name, index) => {
+    setActiveIndex(index);
+    genreId(id);
+    handleSelectedName(name);
+  };
 
   const getGenreListHeader = () => {
     GlobalApi.getGenreList.then((res) => {
       setGenres(res.data.results);
     });
-  };
-
-  const handleGenreClick = (index) => {
-    setActiveIndex(index);
   };
 
   useEffect(() => {
@@ -25,7 +26,7 @@ export default function GenreList() {
       <h2 className="text-[30px] font-bold dark:text-white">
         {genres.map((item, index) => (
           <div
-            onClick={() => handleGenreClick(index)}
+            onClick={() => handleGenreClick(item.id, item.name, index)}
             key={item.id}
             className={`flex gap-2 items-center mb-2 cursor-pointer hover:bg-gray-300 p-2 group rounded-lg hover:dark:bg-gray-600 ${
               activeIndex === index ? 'bg-gray-300 dark:bg-gray-600' : null
