@@ -1,7 +1,7 @@
 import './App.css';
-import { Header } from './Components';
-import { Home } from './Pages';
-import { useThemeContext } from './hooks';
+import { Header } from '@/Components';
+import { Home } from '@/Pages';
+import { useThemeContext } from '@/hooks';
 
 function App() {
   const { theme } = useThemeContext();
