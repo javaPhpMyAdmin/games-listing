@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import logo from '../../assets/Images/logo.png';
+import logo from '@/assets/Images/logo.png';
 import { HiOutlineMagnifyingGlass, HiMoon, HiSun } from 'react-icons/hi2';
-import { useThemeContext } from '../../hooks';
+import { useThemeContext } from '@/hooks';
+import { Image, Input } from '@/Common';
 
 export default function Header() {
   const [toggle, setToggle] = useState(true);
@@ -14,11 +15,11 @@ export default function Header() {
   };
 
   return (
-    <div className="flex p-3 items-center ">
-      <img src={logo} width={60} height={60} />
+    <section className="flex p-3 items-center ">
+      <Image url={logo} width={60} height={60} />
       <div className="rounded-full flex bg-slate-200 p-2 w-full mx-5 items-center">
         <HiOutlineMagnifyingGlass />
-        <input
+        <Input
           type="text"
           placeholder="Search Games"
           className="px-2 bg-transparent outline-none"
@@ -37,6 +38,6 @@ export default function Header() {
           />
         )}
       </div>
-    </div>
+    </section>
   );
 }
