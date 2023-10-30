@@ -3,13 +3,14 @@ import logo from '@/assets/Images/logo.png';
 import { HiOutlineMagnifyingGlass, HiMoon, HiSun } from 'react-icons/hi2';
 import { useThemeContext } from '@/hooks';
 import { Image, Input } from '@/Common';
+import { setItemLocalStorage } from '@/Helpers';
 
 export default function Header() {
   const [toggle, setToggle] = useState(true);
   const { theme, toggleTheme } = useThemeContext();
 
   const handleToggle = () => {
-    localStorage.setItem('theme', theme === 'dark' ? 'light' : 'dark');
+    setItemLocalStorage('theme', theme === 'dark' ? 'light' : 'dark');
     toggleTheme();
     setToggle(!toggle);
   };

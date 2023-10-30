@@ -15,6 +15,7 @@ export default defineConfig({
       '@/Common': '/src/Common',
       '@/HttpClient': '/src/HttpClient',
       '@/Config': '/src/Config',
+      '@/Helpers': '/src/Helpers',
     },
   },
 });

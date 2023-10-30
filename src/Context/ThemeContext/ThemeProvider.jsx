@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ThemeContext } from './ThemeContext';
+import { getItemLocalStorage } from '@/Helpers';
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState('light');
@@ -9,7 +10,7 @@ export const ThemeProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    setTheme(localStorage.getItem('theme') ?? '');
+    setTheme(getItemLocalStorage('theme') ?? '');
   }, []);
 
   return (
