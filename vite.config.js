@@ -12,6 +12,9 @@ export default defineConfig({
       '@/hooks': '/src/hooks',
       '@/Pages': '/src/Pages',
       '@/Services': '/src/Services',
+      '@/Common': '/src/Common',
+      '@/HttpClient': '/src/HttpClient',
+      '@/Config': '/src/Config',
     },
   },
 });
