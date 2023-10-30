@@ -1,31 +1,23 @@
-import { useEffect, useState } from 'react';
-import GlobalApi from '@/Services/GlobalApi';
+import { useState } from 'react';
 import { GenreGameCard } from '@/Components';
 import { Title } from '@/Common';
+import { useGamesContext } from '@/hooks';
 
-export default function GenreList({ genreId, handleSelectedName }) {
-  const [genres, setGenres] = useState([]);
+export default function GenreList() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const { handleSetterGenreById, handleSelectedName, genres } =
+    useGamesContext();
 
   const handleGenreClick = (id, name, index) => {
     setActiveIndex(index);
-    genreId(id);
+    handleSetterGenreById(id);
     handleSelectedName(name);
   };
-
-  const getGenreListHeader = () => {
-    GlobalApi.getGenreList.then((res) => {
-      setGenres(res.data.results);
-    });
-  };
-
-  useEffect(() => {
-    getGenreListHeader();
-  }, []);
 
   return (
     <div>
       <Title className="text-[30px] font-bold dark:text-white">Genres</Title>
+
       {genres.map((item, index) => (
         <GenreGameCard
           key={item.id}

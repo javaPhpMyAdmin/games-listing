@@ -1,10 +1,9 @@
 import { Title } from '@/Common';
 import { GenreGameByIdCard } from '@/Components';
+import { useGamesContext } from '@/hooks';
 
-export default function GamesByGenresId({
-  gameListByGenres,
-  selectedGenresName,
-}) {
+export default function GamesByGenresId() {
+  const { gameListByGenres, selectedGenresName } = useGamesContext();
   return (
     <div className="mt-5 ">
       <Title className="ml-2 font-bold text-[30px] dark:text-white">

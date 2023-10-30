@@ -13,6 +13,8 @@ export default defineConfig({
       '@/Pages': '/src/Pages',
       '@/Services': '/src/Services',
       '@/Common': '/src/Common',
+      '@/HttpClient': '/src/HttpClient',
+      '@/Config': '/src/Config',
     },
   },
 });
